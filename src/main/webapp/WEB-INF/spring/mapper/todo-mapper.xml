@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.callor.todo.persistance.TodoDao">
+ 
+ 	<select id="selectAll" resultType="TodoVO">
+ 		SELECT * FROM tbl_todos
+ 		ORDER BY insert_date DESC, insert_time DESC 
+ 	</select>
+ 	<select id="findById" resultType="TodoVO">
+ 	 	SELECT * FROM tbl_todos
+ 	 	WHERE id=#{id}
+ 	</select>
+ 	<select id="selectTodoAll" resultType="TodoVO">
+ 		SELECT * FROM tbl_todos
+ 		WHERE id=#{id}
+ 		ORDER BY insert_date DESC, insert_time DESC 
+ 	</select>
+ 	<insert id="insert" parameterType="TodoVO">
+ 		INSERT INTO tbl_todos(
+ 		id,
+ 		insert_date,
+ 		insert_time,
+ 		context,
+ 		comp_date,
+ 		comp_time
+ 		) VALUES (
+ 		#{id},
+ 		#{insert_date},
+ 		#{insert_time},
+ 		#{context},
+ 		#{comp_date},
+ 		#{comp_time}	
+ 		)
+ 	</insert>
+ 	<update id="update"></update>
+ 	<delete id="delete"></delete>
+ 	
+ 	<select id="create_todo_table">
+ 		CREATE TABLE IF NOT EXISTS tbl_todos (
+ 			seq BIGINT AUTO_INCREMENT PRIMARY KEY,
+ 		 	id VARCHAR(30),
+	 		insert_date VARCHAR(30),
+	 		insert_time VARCHAR(30),
+	 		context VARCHAR(30) NOT NULL,
+	 		comp_date VARCHAR(30),
+	 		comp_time VARCHAR(30)
+ 		)
+ 	</select>
+ 
+ </mapper> 
