@@ -31,9 +31,9 @@ public class TodoServiceImplV1 implements TodoService{
 	}
 
 	@Override
-	public TodoVO findById(String id) {
-		// TODO Auto-generated method stub
-		return todoDao.findById(id);
+	public TodoVO findById(Long seq) {
+		
+		return todoDao.findById(seq);
 	}
 
 	@Override
@@ -47,15 +47,14 @@ public class TodoServiceImplV1 implements TodoService{
 
 	@Override
 	public int update(TodoVO vo) {
-		// TODO Auto-generated method stub
 		
 		return todoDao.update(vo);
 	}
 
 	@Override
-	public int delete(String id) {
+	public int delete(Long seq) {
 		// TODO Auto-generated method stub
-		return todoDao.delete(id);
+		return todoDao.delete(seq);
 	}
 
 	@Override

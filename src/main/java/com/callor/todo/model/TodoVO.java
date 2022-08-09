@@ -15,6 +15,7 @@ import lombok.ToString;
 @ToString
 public class TodoVO {
 	
+	private long seq;
 	private String id;
 	private String insert_date;
 	private String insert_time;
@@ -22,6 +23,8 @@ public class TodoVO {
 	
 	private String comp_date;
 	private String comp_time;
+	
+	private Boolean complete;
 	
 	
 	

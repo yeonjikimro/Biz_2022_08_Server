@@ -22,15 +22,7 @@
 	<h3>
 		<sec:authentication property="principal.username" />
 	</h3>
-	<h3>
-		<sec:authentication property="principal.email" />
-	</h3>
-	<h3>
-		<sec:authentication property="principal.realname" />
-	</h3>
-	<h3>
-		<sec:authentication property="principal.nickname" />
-	</h3>
+
 
 
 

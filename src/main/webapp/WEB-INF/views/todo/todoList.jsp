@@ -9,9 +9,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+	const rootPath = '${rootPath}'
+</script>
 </head>
+<link rel="stylesheet"
+	href="${rootPath}/static/js/todo.js?ver=2022-08-09-004" />
 <body>
-	<table>
+	<table class="todotable">
 	<tr>
 		<th>작성 일자</th>
 		<th>작성 시간</th>
@@ -21,12 +26,20 @@
 	</tr>
 		<c:forEach items="${todoList}" var="todo">
 	<tr>
+
 		<td>${todo.insert_date }</td>
 		<td>${todo.insert_time }</td>
-		<td>${todo.context }</td>
-		<td>${todo.comp_date }</td>
-		<td>${todo.comp_time }</td>
-		<td>완료</td>
+		<c:if test="${todo.complete == true}">
+			<td class="con" style="text-decoration:line-through" >${todo.context}</td>
+		</c:if>
+		<c:if test="${empty todo.complete || todo.complete == false}">
+			<td class="con" >${todo.context }</td>
+		</c:if>
+		<td>${todo.comp_date}</td>
+		<td>${todo.comp_time}</td>
+		<td><a href="${rootPath}/todo/${todo.seq}/complete"><input type="checkbox" />완료</a></td>
+		<td><a href="${rootPath}/todo/${todo.seq}/update">수정</a></td>
+		
 		
 	</tr>
 		</c:forEach>	
