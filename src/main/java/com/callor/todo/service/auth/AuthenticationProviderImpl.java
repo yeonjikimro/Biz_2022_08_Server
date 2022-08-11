@@ -25,10 +25,6 @@ public class AuthenticationProviderImpl  implements AuthenticationProvider{
 	@Autowired
 	private UserDao userDao;
 	
-
-
-	
-	
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 
